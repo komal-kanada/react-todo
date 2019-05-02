@@ -12,7 +12,6 @@ class TodoItem extends React.Component {
     }
     editTask(e) {
         this.props.editTask(this.props.id, this.refs.task.value);
-        debugger
         this.setState({
             isEditing: false
         });
