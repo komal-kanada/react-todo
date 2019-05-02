@@ -12,6 +12,7 @@ class TodosList extends React.Component {
                     {...C}
                     deleteTask={this.props.deleteTask}
                     editTask={this.props.editTask}
+                    toggleTask={this.props.toggleTask}
                 />
             )
         });

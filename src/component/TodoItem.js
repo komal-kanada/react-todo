@@ -11,14 +11,14 @@ class TodoItem extends React.Component {
         this.props.deleteTask(this.props.id);
     }
     editTask(e) {
-        this.props.editTask(this.props.id);
+        this.props.editTask(this.props.id, this.refs.task.value);
         this.setState({
             isEditing: false
         });
         e.preventDefault();
     }
 
-    setEditState=(isEditing)=>{
+    setEditState = (isEditing) => {
         this.setState({
             isEditing
         });
@@ -30,7 +30,7 @@ class TodoItem extends React.Component {
         if (this.state.isEditing) {
             return (
                 <td>
-                      <button onClick={this.editTask.bind(this)}>Save</button>
+                    <button onClick={this.editTask.bind(this)}>Save</button>
                     <button onClick={this.setEditState.bind(this, false)}>Cancel</button>
                 </td>
             );
@@ -40,15 +40,12 @@ class TodoItem extends React.Component {
                 <td>
                     <button onClick={this.deleteTask.bind(this)}>Delete</button>
                     <button onClick={this.setEditState.bind(this, true)}>Edit</button>
-
                 </td>
             );
         }
     }
     renderTask() {
         const { task, isCompleted } = this.props;
-
-
         if (this.state.isEditing) {
             return (
                 <td>
@@ -58,12 +55,11 @@ class TodoItem extends React.Component {
                 </td>
             );
         }
-
         return (
+
             <td onClick={this.toggleTask.bind(this)}>{task}</td>
         );
     }
-
     render() {
         const { isCompleted } = this.props;
         return (

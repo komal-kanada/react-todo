@@ -13,7 +13,7 @@ const todos = {
   remove(id) {
     this.items.splice(id, 1);
   },
-  update(id,task) {
+  update(id, task) {
     let todoItem = this.items[id];
     todoItem = task
   },
@@ -41,7 +41,8 @@ class App extends Component {
     this.setState({ todos: this.state.todos });
   }
 
-  toggleTask() {
+  toggleTask(taskId) {
+    todos.toggle(taskId);
     this.setState({ todos: this.state.todos });
   }
 
@@ -60,6 +61,7 @@ class App extends Component {
         <CreateTodo createTask={this.createTask.bind(this)} />
         <TodosList
           todos={this.state.todos}
+          toggleTask={this.toggleTask.bind(this)}
           deleteTask={this.deleteTask.bind(this)}
           editTask={this.editTask.bind(this)}
         />
