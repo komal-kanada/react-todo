@@ -8,8 +8,8 @@ class TodosList extends React.Component {
             return (
                 <TodoItem
                     key={index}
-                    id={index}
                     {...C}
+                    id={index}
                     deleteTask={this.props.deleteTask}
                     editTask={this.props.editTask}
                     toggleTask={this.props.toggleTask}

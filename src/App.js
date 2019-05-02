@@ -15,12 +15,12 @@ const todos = {
   },
   update(id, task) {
     let todoItem = this.items[id];
-    todoItem = task
+    todoItem.task = task;
   },
   toggle(id) {
     let todoItem = this.items[id];
     todoItem.isCompleted = !todoItem.isCompleted;
-  },
+  }
 };
 
 

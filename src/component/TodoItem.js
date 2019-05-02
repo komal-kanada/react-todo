@@ -12,12 +12,12 @@ class TodoItem extends React.Component {
     }
     editTask(e) {
         this.props.editTask(this.props.id, this.refs.task.value);
+        debugger
         this.setState({
             isEditing: false
         });
         e.preventDefault();
     }
-
     setEditState = (isEditing) => {
         this.setState({
             isEditing
@@ -35,17 +35,16 @@ class TodoItem extends React.Component {
                 </td>
             );
         }
-        else {
-            return (
-                <td>
-                    <button onClick={this.deleteTask.bind(this)}>Delete</button>
-                    <button onClick={this.setEditState.bind(this, true)}>Edit</button>
-                </td>
-            );
-        }
+        return (
+            <td>
+                <button onClick={this.deleteTask.bind(this)}>Delete</button>
+                <button onClick={this.setEditState.bind(this, true)}>Edit</button>
+            </td>
+        );
+
     }
     renderTask() {
-        const { task, isCompleted } = this.props;
+        const { task } = this.props;
         if (this.state.isEditing) {
             return (
                 <td>
